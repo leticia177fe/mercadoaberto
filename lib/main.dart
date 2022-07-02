@@ -66,18 +66,65 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xfff5d415),
-        actions: const [Icon(
-          Icons.shopping_cart,
-          color: Colors.black,
+        shadowColor: Colors.transparent,
+        backgroundColor: const Color(0xfff5d415),
+       title: TextField(
+       ),
+        actions: [
+          Container(
+            padding: EdgeInsets.all(5.0),
+            child: Icon(
+            Icons.shopping_cart,
+            color: Colors.black,
+          ),
           ),
           ],
+
         leading: const Icon(
           Icons. menu,
           color: Colors.black,
       ),
+
+       bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                Icon(Icons.location_on_outlined),
+                Text("Enviar para Marcello Queiroz - Rua Jardim Paulista, 56",
+                style: TextStyle(fontSize: 12),
+              
+                ),
+
+            ],
+
+        ),
+
+      )
+
+    ),
+    
+    body: Center(
+        child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.center,
+          colors: [
+            Color(0xfff5d415),
+            Color(0xfff5f5f5),
+          ],
+
       ),
-      body: Center(),
-    );
-  }
+
+     ), 
+
+    )
+
+  )
+
+);
+
+}
+
 }
