@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -68,22 +70,37 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         shadowColor: Colors.transparent,
         backgroundColor: const Color(0xfff5d415),
-       title: TextField(
-       ),
-        actions: [
-          Container(
-            padding: EdgeInsets.all(5.0),
-            child: Icon(
-            Icons.shopping_cart,
-            color: Colors.black,
-          ),
-          ),
-          ],
 
         leading: const Icon(
           Icons. menu,
           color: Colors.black,
       ),
+        
+
+          title: const TextField(
+          decoration: InputDecoration(
+            prefixIcon: const Icon(
+            Icons.search,
+            color: Colors.black,
+      ),
+          hintText: "Pesquise seu produto",
+          isDense: true,
+          filled: true,
+          fillColor: Colors.white,
+          border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+          ),
+          ),
+          ),
+        actions: [
+          Container(
+            padding: const EdgeInsets.all(5.0),
+            child: const Icon(
+            Icons.shopping_cart,
+            color: Colors.black,
+          ),
+          ),
+          ],
 
        bottom: PreferredSize(
             preferredSize: const Size.fromHeight(20.0),
