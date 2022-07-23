@@ -1,6 +1,8 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:mercado_aberto/components/campo_pesquisa.dart';
+import 'package:mercado_aberto/components/card_assinatura.dart';
+import 'package:mercado_aberto/components/card_frete_gratis.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,23 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
           Icons. menu,
           color: Colors.black,
       ),
-        
 
-          title: const TextField(
-          decoration: InputDecoration(
-            prefixIcon: const Icon(
-            Icons.search,
-            color: Colors.black,
-      ),
-          hintText: "Pesquise seu produto",
-          isDense: true,
-          filled: true,
-          fillColor: Colors.white,
-          border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-          ),
-          ),
-          ),
+          title: CampoPesquisa(),
+
         actions: [
           Container(
             padding: const EdgeInsets.all(5.0),
@@ -123,7 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
     
     body: Center(
         child: Container(
-        decoration: const BoxDecoration(
+          padding: EdgeInsets.only(right: 25, left: 25,),
+          decoration: const BoxDecoration(
           gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.center,
@@ -135,12 +124,32 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
      ), 
+       
+        child: Column(
+          children: [
+            const Padding(padding: EdgeInsets.all(5)),
+            Container(
+              padding: const EdgeInsets.all(3), 
+              height: 140,
+              child: Image.network(
+                'https://http2.mlstatic.com/D_NQ_NP650326-MLA50239834698_062022-B.jpg',
+              ),
+
+            ),
+            
+          CardAssinatura(titulo:"Assine o nível 6 por R\$ 9,90/mês!"),
+
+          CardFrete(titulo:"Frete grátis",),
+
+          ],
+        
+        ),
+
+      ),
 
     )
 
-  )
-
-);
+  );
 
 }
 
