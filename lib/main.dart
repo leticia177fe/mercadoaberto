@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:mercado_aberto/components/botao_categoria.dart';
 import 'package:mercado_aberto/components/campo_pesquisa.dart';
 import 'package:mercado_aberto/components/card_assinatura.dart';
 import 'package:mercado_aberto/components/card_frete_gratis.dart';
+import 'package:mercado_aberto/components/texto_CEP.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,22 +13,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -37,15 +30,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -53,18 +37,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,18 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
        bottom: PreferredSize(
             preferredSize: const Size.fromHeight(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                Icon(Icons.location_on_outlined),
-                Text("Enviar para Marcello Queiroz - Rua Jardim Paulista, 56",
-                style: TextStyle(fontSize: 12),
-              
-                ),
-
-            ],
-
-        ),
+              child: textoCEP(),
 
       )
 
@@ -141,15 +103,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
           CardFrete(titulo:"Frete grátis",),
 
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+              children:[
+                BotaoCategoria(
+                  iconeTipos: Icons.ac_unit_outlined,
+                  ),
+                  
+                  SizedBox(width: 10,),
+
+                BotaoCategoria(
+                iconeTipos: Icons.bedroom_child,
+                ),
+                
+                SizedBox(width: 10,),
+
+              BotaoCategoria(
+                iconeTipos: Icons.ad_units_sharp,
+                ),
+                
+                SizedBox(width: 10,),
+
+              BotaoCategoria(
+                iconeTipos: Icons.filter_9_plus,
+                ),
+                
+                SizedBox(width: 10,),
+
+              BotaoCategoria(
+                iconeTipos: Icons.plus_one,
+                ),
+
+          ],)
+
           ],
-        
-        ),
 
-      ),
+          ),
 
-    )
+          ),
 
-  );
+          ),
+
+);
 
 }
 
